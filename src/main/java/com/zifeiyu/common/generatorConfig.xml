@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="/Users/hukaifang/java/.m2/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://rm-2ze6pfkaziq28393nzo.mysql.rds.aliyuncs.com:3306/db_picture_book"
+                        userId="mmears_admin"
+                        password="MmearsQa2018!">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--  实体类,example -->
+        <javaModelGenerator targetPackage="com.mmears.plateform.entity.picturebook" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--mapper  xml-->
+        <sqlMapGenerator targetPackage="mybatis.mapper.picturebook" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.mmears.plateform.dao.picturebook" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="db_picture_book" tableName="age_language_level" domainObjectName="AgeLanguageLevel">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="learned_record" domainObjectName="LearnedRecord">
+            <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="learned_statistics" domainObjectName="LearnedStatistics">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="level_stage" domainObjectName="LevelStage">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="msg_template" domainObjectName="MsgTemplate">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="pictrue_book_content" domainObjectName="PictrueBookContent">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="picture_book_level" domainObjectName="PictureBookLevel">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="picture_book_tmp" domainObjectName="PictureBookTmp">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="picture_book_title" domainObjectName="PictureBookTitle">
+            <columnOverride column="type" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="picture_lock" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="video_lock" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="landmark_lock" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="user" domainObjectName="User">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="db_picture_book" tableName="user_login_logs" domainObjectName="UserLoginLogs">
+            <columnOverride column="status" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
