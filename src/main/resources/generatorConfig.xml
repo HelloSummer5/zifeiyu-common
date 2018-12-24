@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="/Users/macos1014/Documents/software/repository/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar"/>
+
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://39.107.67.126:3306/zifeiyu"
+                        userId="zifeiyu"
+                        password="Zfy!2018">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--  实体类,example -->
+        <javaModelGenerator targetPackage="com.zifeiyu.common.model.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--mapper  xml-->
+        <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zifeiyu.common.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="zifeiyu" tableName="t_user" domainObjectName="ManageUser">
+        </table>
+
+        <table schema="zifeiyu" tableName="t_tips" domainObjectName="Tips">
+        </table>
+
+        <table schema="zifeiyu" tableName="t_shops" domainObjectName="Shops">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="zifeiyu" tableName="t_shops_img" domainObjectName="ShopsImg">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="zifeiyu" tableName="t_page" domainObjectName="ClassifyPage">
+        </table>
+
+        <table schema="zifeiyu" tableName="t_function" domainObjectName="ClassifyFunction">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+        <table schema="zifeiyu" tableName="t_price" domainObjectName="ClassifyPrice">
+            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        </table>
+
+    </context>
+</generatorConfiguration>
