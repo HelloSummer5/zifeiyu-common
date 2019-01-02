@@ -50,7 +50,7 @@
             <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
         </table>
 
-        <table schema="zifeiyu" tableName="t_shops_img" domainObjectName="ShopsImg">
+        <table schema="zifeiyu" tableName="t_shops_detail" domainObjectName="ShopsDetail">
             <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
         </table>
 

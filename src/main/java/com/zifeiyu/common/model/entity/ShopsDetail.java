@@ -3,7 +3,7 @@ package com.zifeiyu.common.model.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ShopsImg implements Serializable {
+public class ShopsDetail implements Serializable {
     private Integer id;
 
     private Integer shopId;
