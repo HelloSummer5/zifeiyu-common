@@ -1,4 +1,4 @@
-add spring:
+spring:
     datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.jdbc.Driver
