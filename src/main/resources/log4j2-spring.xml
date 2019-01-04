@@ -8,8 +8,8 @@
 
         <RollingRandomAccessFile name="RollingRandomAccessFile"
                                  immediateFlush="true"
-                                 fileName="./logs/zifeiyu-common/zifeiyu-common.log"
-                                 filePattern="./logs/zifeiyu-common/zifeiyu-common.%d{yyyy-MM-dd}-%i.log">
+                                 fileName="/home/develop/logs/zifeiyu-common/zifeiyu-common.log"
+                                 filePattern="/home/develop/logs/zifeiyu-common/zifeiyu-common.%d{yyyy-MM-dd}-%i.log">
             <PatternLayout pattern="%d %-5p [%c] %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
