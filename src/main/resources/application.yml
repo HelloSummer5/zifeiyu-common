@@ -21,7 +21,7 @@ spring:
     testWhileIdle: true
     testOnBorrow: false
     testOnReturn: false
-    filters: stat,wall
+    filters: stat,wall,log4j2
     logSlowSql: true
 
 # Mybtis相关
