@@ -6,6 +6,8 @@ import java.util.Date;
 public class Shops implements Serializable {
     private Integer id;
 
+    private String sid;
+
     private String name;
 
     private String coverImgUrl;
@@ -36,6 +38,14 @@ public class Shops implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid == null ? null : sid.trim();
     }
 
     public String getName() {

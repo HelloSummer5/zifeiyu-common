@@ -1,39 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zifeiyu.common.mapper.ShopsMapper">
-  <resultMap id="BaseResultMap" type="com.zifeiyu.common.model.entity.Shops">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="cover_img_url" jdbcType="VARCHAR" property="coverImgUrl" />
-    <result column="price_id" jdbcType="INTEGER" property="priceId" />
-    <result column="tips_id" jdbcType="INTEGER" property="tipsId" />
-    <result column="page_id" jdbcType="INTEGER" property="pageId" />
-    <result column="service" jdbcType="INTEGER" property="service" />
-    <result column="create_user_id" jdbcType="INTEGER" property="createUserId" />
-    <result column="update_user_id" jdbcType="INTEGER" property="updateUserId" />
-    <result column="usable_flag" jdbcType="TINYINT" property="usableFlag" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zifeiyu.common.mapper.ShopsMapper" >
+  <resultMap id="BaseResultMap" type="com.zifeiyu.common.model.entity.Shops" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sid" property="sid" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="cover_img_url" property="coverImgUrl" jdbcType="VARCHAR" />
+    <result column="price_id" property="priceId" jdbcType="INTEGER" />
+    <result column="tips_id" property="tipsId" jdbcType="INTEGER" />
+    <result column="page_id" property="pageId" jdbcType="INTEGER" />
+    <result column="service" property="service" jdbcType="INTEGER" />
+    <result column="create_user_id" property="createUserId" jdbcType="INTEGER" />
+    <result column="update_user_id" property="updateUserId" jdbcType="INTEGER" />
+    <result column="usable_flag" property="usableFlag" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -44,25 +45,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue">
+                <when test="criterion.singleValue" >
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue">
+                <when test="criterion.betweenValue" >
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue">
+                <when test="criterion.listValue" >
                   and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
                     #{listItem}
                   </foreach>
                 </when>
@@ -73,184 +74,194 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List">
-    id, name, cover_img_url, price_id, tips_id, page_id, service, create_user_id, update_user_id, 
-    usable_flag, create_time, update_time
+  <sql id="Base_Column_List" >
+    id, sid, name, cover_img_url, price_id, tips_id, page_id, service, create_user_id, 
+    update_user_id, usable_flag, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zifeiyu.common.model.entity.ShopsExample" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from t_shops
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_shops
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_shops
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample">
+  <delete id="deleteByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" >
     delete from t_shops
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zifeiyu.common.model.entity.Shops">
-    insert into t_shops (id, name, cover_img_url, 
-      price_id, tips_id, page_id, 
-      service, create_user_id, update_user_id, 
-      usable_flag, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{coverImgUrl,jdbcType=VARCHAR}, 
-      #{priceId,jdbcType=INTEGER}, #{tipsId,jdbcType=INTEGER}, #{pageId,jdbcType=INTEGER}, 
-      #{service,jdbcType=INTEGER}, #{createUserId,jdbcType=INTEGER}, #{updateUserId,jdbcType=INTEGER}, 
-      #{usableFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+  <insert id="insert" parameterType="com.zifeiyu.common.model.entity.Shops" >
+    insert into t_shops (id, sid, name, 
+      cover_img_url, price_id, tips_id, 
+      page_id, service, create_user_id, 
+      update_user_id, usable_flag, create_time, 
+      update_time)
+    values (#{id,jdbcType=INTEGER}, #{sid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{coverImgUrl,jdbcType=VARCHAR}, #{priceId,jdbcType=INTEGER}, #{tipsId,jdbcType=INTEGER}, 
+      #{pageId,jdbcType=INTEGER}, #{service,jdbcType=INTEGER}, #{createUserId,jdbcType=INTEGER}, 
+      #{updateUserId,jdbcType=INTEGER}, #{usableFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.zifeiyu.common.model.entity.Shops">
+  <insert id="insertSelective" parameterType="com.zifeiyu.common.model.entity.Shops" >
     insert into t_shops
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         id,
       </if>
-      <if test="name != null">
+      <if test="sid != null" >
+        sid,
+      </if>
+      <if test="name != null" >
         name,
       </if>
-      <if test="coverImgUrl != null">
+      <if test="coverImgUrl != null" >
         cover_img_url,
       </if>
-      <if test="priceId != null">
+      <if test="priceId != null" >
         price_id,
       </if>
-      <if test="tipsId != null">
+      <if test="tipsId != null" >
         tips_id,
       </if>
-      <if test="pageId != null">
+      <if test="pageId != null" >
         page_id,
       </if>
-      <if test="service != null">
+      <if test="service != null" >
         service,
       </if>
-      <if test="createUserId != null">
+      <if test="createUserId != null" >
         create_user_id,
       </if>
-      <if test="updateUserId != null">
+      <if test="updateUserId != null" >
         update_user_id,
       </if>
-      <if test="usableFlag != null">
+      <if test="usableFlag != null" >
         usable_flag,
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         update_time,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="name != null">
+      <if test="sid != null" >
+        #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="coverImgUrl != null">
+      <if test="coverImgUrl != null" >
         #{coverImgUrl,jdbcType=VARCHAR},
       </if>
-      <if test="priceId != null">
+      <if test="priceId != null" >
         #{priceId,jdbcType=INTEGER},
       </if>
-      <if test="tipsId != null">
+      <if test="tipsId != null" >
         #{tipsId,jdbcType=INTEGER},
       </if>
-      <if test="pageId != null">
+      <if test="pageId != null" >
         #{pageId,jdbcType=INTEGER},
       </if>
-      <if test="service != null">
+      <if test="service != null" >
         #{service,jdbcType=INTEGER},
       </if>
-      <if test="createUserId != null">
+      <if test="createUserId != null" >
         #{createUserId,jdbcType=INTEGER},
       </if>
-      <if test="updateUserId != null">
+      <if test="updateUserId != null" >
         #{updateUserId,jdbcType=INTEGER},
       </if>
-      <if test="usableFlag != null">
+      <if test="usableFlag != null" >
         #{usableFlag,jdbcType=TINYINT},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" resultType="java.lang.Integer" >
     select count(*) from t_shops
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update t_shops
-    <set>
-      <if test="record.id != null">
+    <set >
+      <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.name != null">
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.coverImgUrl != null">
+      <if test="record.coverImgUrl != null" >
         cover_img_url = #{record.coverImgUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.priceId != null">
+      <if test="record.priceId != null" >
         price_id = #{record.priceId,jdbcType=INTEGER},
       </if>
-      <if test="record.tipsId != null">
+      <if test="record.tipsId != null" >
         tips_id = #{record.tipsId,jdbcType=INTEGER},
       </if>
-      <if test="record.pageId != null">
+      <if test="record.pageId != null" >
         page_id = #{record.pageId,jdbcType=INTEGER},
       </if>
-      <if test="record.service != null">
+      <if test="record.service != null" >
         service = #{record.service,jdbcType=INTEGER},
       </if>
-      <if test="record.createUserId != null">
+      <if test="record.createUserId != null" >
         create_user_id = #{record.createUserId,jdbcType=INTEGER},
       </if>
-      <if test="record.updateUserId != null">
+      <if test="record.updateUserId != null" >
         update_user_id = #{record.updateUserId,jdbcType=INTEGER},
       </if>
-      <if test="record.usableFlag != null">
+      <if test="record.usableFlag != null" >
         usable_flag = #{record.usableFlag,jdbcType=TINYINT},
       </if>
-      <if test="record.createTime != null">
+      <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.updateTime != null">
+      <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update t_shops
     set id = #{record.id,jdbcType=INTEGER},
+      sid = #{record.sid,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       cover_img_url = #{record.coverImgUrl,jdbcType=VARCHAR},
       price_id = #{record.priceId,jdbcType=INTEGER},
@@ -262,371 +273,56 @@
       usable_flag = #{record.usableFlag,jdbcType=TINYINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zifeiyu.common.model.entity.Shops">
+  <update id="updateByPrimaryKeySelective" parameterType="com.zifeiyu.common.model.entity.Shops" >
     update t_shops
-    <set>
-      <if test="name != null">
+    <set >
+      <if test="sid != null" >
+        sid = #{sid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="coverImgUrl != null">
+      <if test="coverImgUrl != null" >
         cover_img_url = #{coverImgUrl,jdbcType=VARCHAR},
       </if>
-      <if test="priceId != null">
+      <if test="priceId != null" >
         price_id = #{priceId,jdbcType=INTEGER},
       </if>
-      <if test="tipsId != null">
+      <if test="tipsId != null" >
         tips_id = #{tipsId,jdbcType=INTEGER},
       </if>
-      <if test="pageId != null">
+      <if test="pageId != null" >
         page_id = #{pageId,jdbcType=INTEGER},
       </if>
-      <if test="service != null">
+      <if test="service != null" >
         service = #{service,jdbcType=INTEGER},
       </if>
-      <if test="createUserId != null">
+      <if test="createUserId != null" >
         create_user_id = #{createUserId,jdbcType=INTEGER},
       </if>
-      <if test="updateUserId != null">
+      <if test="updateUserId != null" >
         update_user_id = #{updateUserId,jdbcType=INTEGER},
       </if>
-      <if test="usableFlag != null">
+      <if test="usableFlag != null" >
         usable_flag = #{usableFlag,jdbcType=TINYINT},
       </if>
-      <if test="createTime != null">
+      <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateTime != null">
+      <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zifeiyu.common.model.entity.Shops">
+  <update id="updateByPrimaryKey" parameterType="com.zifeiyu.common.model.entity.Shops" >
     update t_shops
-    set name = #{name,jdbcType=VARCHAR},
-      cover_img_url = #{coverImgUrl,jdbcType=VARCHAR},
-      price_id = #{priceId,jdbcType=INTEGER},
-      tips_id = #{tipsId,jdbcType=INTEGER},
-      page_id = #{pageId,jdbcType=INTEGER},
-      service = #{service,jdbcType=INTEGER},
-      create_user_id = #{createUserId,jdbcType=INTEGER},
-      update_user_id = #{updateUserId,jdbcType=INTEGER},
-      usable_flag = #{usableFlag,jdbcType=TINYINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <resultMap id="BaseResultMap" type="com.zifeiyu.common.model.entity.Shops">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="cover_img_url" jdbcType="VARCHAR" property="coverImgUrl" />
-    <result column="price_id" jdbcType="INTEGER" property="priceId" />
-    <result column="tips_id" jdbcType="INTEGER" property="tipsId" />
-    <result column="page_id" jdbcType="INTEGER" property="pageId" />
-    <result column="service" jdbcType="INTEGER" property="service" />
-    <result column="create_user_id" jdbcType="INTEGER" property="createUserId" />
-    <result column="update_user_id" jdbcType="INTEGER" property="updateUserId" />
-    <result column="usable_flag" jdbcType="TINYINT" property="usableFlag" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    id, name, cover_img_url, price_id, tips_id, page_id, service, create_user_id, update_user_id, 
-    usable_flag, create_time, update_time
-  </sql>
-  <select id="selectByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from t_shops
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_shops
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_shops
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample">
-    delete from t_shops
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.zifeiyu.common.model.entity.Shops">
-    insert into t_shops (id, name, cover_img_url, 
-      price_id, tips_id, page_id, 
-      service, create_user_id, update_user_id, 
-      usable_flag, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{coverImgUrl,jdbcType=VARCHAR}, 
-      #{priceId,jdbcType=INTEGER}, #{tipsId,jdbcType=INTEGER}, #{pageId,jdbcType=INTEGER}, 
-      #{service,jdbcType=INTEGER}, #{createUserId,jdbcType=INTEGER}, #{updateUserId,jdbcType=INTEGER}, 
-      #{usableFlag,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.zifeiyu.common.model.entity.Shops">
-    insert into t_shops
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="coverImgUrl != null">
-        cover_img_url,
-      </if>
-      <if test="priceId != null">
-        price_id,
-      </if>
-      <if test="tipsId != null">
-        tips_id,
-      </if>
-      <if test="pageId != null">
-        page_id,
-      </if>
-      <if test="service != null">
-        service,
-      </if>
-      <if test="createUserId != null">
-        create_user_id,
-      </if>
-      <if test="updateUserId != null">
-        update_user_id,
-      </if>
-      <if test="usableFlag != null">
-        usable_flag,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="coverImgUrl != null">
-        #{coverImgUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="priceId != null">
-        #{priceId,jdbcType=INTEGER},
-      </if>
-      <if test="tipsId != null">
-        #{tipsId,jdbcType=INTEGER},
-      </if>
-      <if test="pageId != null">
-        #{pageId,jdbcType=INTEGER},
-      </if>
-      <if test="service != null">
-        #{service,jdbcType=INTEGER},
-      </if>
-      <if test="createUserId != null">
-        #{createUserId,jdbcType=INTEGER},
-      </if>
-      <if test="updateUserId != null">
-        #{updateUserId,jdbcType=INTEGER},
-      </if>
-      <if test="usableFlag != null">
-        #{usableFlag,jdbcType=TINYINT},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.zifeiyu.common.model.entity.ShopsExample" resultType="java.lang.Integer">
-    select count(*) from t_shops
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update t_shops
-    <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
-      <if test="record.name != null">
-        name = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.coverImgUrl != null">
-        cover_img_url = #{record.coverImgUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="record.priceId != null">
-        price_id = #{record.priceId,jdbcType=INTEGER},
-      </if>
-      <if test="record.tipsId != null">
-        tips_id = #{record.tipsId,jdbcType=INTEGER},
-      </if>
-      <if test="record.pageId != null">
-        page_id = #{record.pageId,jdbcType=INTEGER},
-      </if>
-      <if test="record.service != null">
-        service = #{record.service,jdbcType=INTEGER},
-      </if>
-      <if test="record.createUserId != null">
-        create_user_id = #{record.createUserId,jdbcType=INTEGER},
-      </if>
-      <if test="record.updateUserId != null">
-        update_user_id = #{record.updateUserId,jdbcType=INTEGER},
-      </if>
-      <if test="record.usableFlag != null">
-        usable_flag = #{record.usableFlag,jdbcType=TINYINT},
-      </if>
-      <if test="record.createTime != null">
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateTime != null">
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update t_shops
-    set id = #{record.id,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR},
-      cover_img_url = #{record.coverImgUrl,jdbcType=VARCHAR},
-      price_id = #{record.priceId,jdbcType=INTEGER},
-      tips_id = #{record.tipsId,jdbcType=INTEGER},
-      page_id = #{record.pageId,jdbcType=INTEGER},
-      service = #{record.service,jdbcType=INTEGER},
-      create_user_id = #{record.createUserId,jdbcType=INTEGER},
-      update_user_id = #{record.updateUserId,jdbcType=INTEGER},
-      usable_flag = #{record.usableFlag,jdbcType=TINYINT},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zifeiyu.common.model.entity.Shops">
-    update t_shops
-    <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="coverImgUrl != null">
-        cover_img_url = #{coverImgUrl,jdbcType=VARCHAR},
-      </if>
-      <if test="priceId != null">
-        price_id = #{priceId,jdbcType=INTEGER},
-      </if>
-      <if test="tipsId != null">
-        tips_id = #{tipsId,jdbcType=INTEGER},
-      </if>
-      <if test="pageId != null">
-        page_id = #{pageId,jdbcType=INTEGER},
-      </if>
-      <if test="service != null">
-        service = #{service,jdbcType=INTEGER},
-      </if>
-      <if test="createUserId != null">
-        create_user_id = #{createUserId,jdbcType=INTEGER},
-      </if>
-      <if test="updateUserId != null">
-        update_user_id = #{updateUserId,jdbcType=INTEGER},
-      </if>
-      <if test="usableFlag != null">
-        usable_flag = #{usableFlag,jdbcType=TINYINT},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.zifeiyu.common.model.entity.Shops">
-    update t_shops
-    set name = #{name,jdbcType=VARCHAR},
+    set sid = #{sid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       cover_img_url = #{coverImgUrl,jdbcType=VARCHAR},
       price_id = #{priceId,jdbcType=INTEGER},
       tips_id = #{tipsId,jdbcType=INTEGER},

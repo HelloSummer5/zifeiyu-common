@@ -58,6 +58,12 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!--mybatis-->
+        <!--日志输出-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <!--日志输出 End-->
         <!-- mybatis逆向工程 -->
         <dependency>
             <groupId>org.mybatis.generator</groupId>
