@@ -5,7 +5,7 @@
 <Configuration status="WARN" monitorInterval="30">
     <Properties>
         <Property name="App">zifeiyu-common</Property>
-        <Property name="logDir">logs</Property>
+        <Property name="logDir">./logs</Property>
         <Property name="splitSize">30 MB</Property>
     </Properties>
 
