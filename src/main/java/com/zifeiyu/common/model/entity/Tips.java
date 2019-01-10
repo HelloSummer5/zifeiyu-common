@@ -6,7 +6,7 @@ import java.util.Date;
 public class Tips implements Serializable {
     private Integer id;
 
-    private Integer name;
+    private String name;
 
     private Date createTime;
 
@@ -22,12 +22,12 @@ public class Tips implements Serializable {
         this.id = id;
     }
 
-    public Integer getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Integer name) {
-        this.name = name;
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public Date getCreateTime() {

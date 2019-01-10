@@ -40,30 +40,30 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="zifeiyu" tableName="t_user" domainObjectName="ManageUser">
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_user" domainObjectName="ManageUser">-->
+        <!--</table>-->
 
         <table schema="zifeiyu" tableName="t_tips" domainObjectName="Tips">
         </table>
 
-        <table schema="zifeiyu" tableName="t_shops" domainObjectName="Shops">
-            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_shops" domainObjectName="Shops">-->
+            <!--<columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>-->
+        <!--</table>-->
 
-        <table schema="zifeiyu" tableName="t_shops_detail" domainObjectName="ShopsDetail">
-            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_shops_detail" domainObjectName="ShopsDetail">-->
+            <!--<columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>-->
+        <!--</table>-->
 
-        <table schema="zifeiyu" tableName="t_page" domainObjectName="ClassifyPage">
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_page" domainObjectName="ClassifyPage">-->
+        <!--</table>-->
 
-        <table schema="zifeiyu" tableName="t_function" domainObjectName="ClassifyFunction">
-            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_function" domainObjectName="ClassifyFunction">-->
+            <!--<columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>-->
+        <!--</table>-->
 
-        <table schema="zifeiyu" tableName="t_price" domainObjectName="ClassifyPrice">
-            <columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>
-        </table>
+        <!--<table schema="zifeiyu" tableName="t_price" domainObjectName="ClassifyPrice">-->
+            <!--<columnOverride column="usable_flag" javaType="java.lang.Integer" jdbcType="TINYINT"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

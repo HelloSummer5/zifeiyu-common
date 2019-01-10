@@ -1,4 +1,4 @@
-package com.zifeiyu.common.dao;
+package com.zifeiyu.common.dao.mapper;
 
 import com.zifeiyu.common.model.entity.Tips;
 import com.zifeiyu.common.model.entity.TipsExample;

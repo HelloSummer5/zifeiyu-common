@@ -2,7 +2,7 @@ package com.zifeiyu.common.service.impl;
 
 import com.zifeiyu.common.dao.ClassifyPageMapper;
 import com.zifeiyu.common.dao.ClassifyPriceMapper;
-import com.zifeiyu.common.dao.TipsMapper;
+import com.zifeiyu.common.dao.mapper.TipsMapper;
 import com.zifeiyu.common.model.entity.*;
 import com.zifeiyu.common.service.ClassifyService;
 import org.springframework.beans.factory.annotation.Autowired;
