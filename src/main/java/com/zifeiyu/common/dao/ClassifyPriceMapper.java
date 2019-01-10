@@ -1,8 +1,9 @@
-package com.zifeiyu.common.mapper;
+package com.zifeiyu.common.dao;
 
 import com.zifeiyu.common.model.entity.ClassifyPrice;
 import com.zifeiyu.common.model.entity.ClassifyPriceExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ClassifyPriceMapper {

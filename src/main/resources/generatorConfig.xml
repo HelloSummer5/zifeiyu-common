@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!--mapper接口-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zifeiyu.common.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.zifeiyu.common.dao.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

@@ -1,8 +1,11 @@
 package com.zifeiyu.common.model.entity;
 
+import lombok.ToString;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@ToString
 public class ClassifyPage implements Serializable {
     private Integer id;
 

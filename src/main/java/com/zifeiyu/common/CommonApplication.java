@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @SpringBootApplication
 @EnableSwagger2
-@MapperScan("com.zifeiyu.common.mapper")
+@MapperScan("com.zifeiyu.common.dao")
 public class CommonApplication {
 
     public static void main(String[] args) {

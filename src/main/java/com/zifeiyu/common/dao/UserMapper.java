@@ -1,4 +1,4 @@
-package com.zifeiyu.common.mapper;
+package com.zifeiyu.common.dao;
 
 import com.zifeiyu.common.model.entity.User;
 import org.apache.ibatis.annotations.Mapper;
