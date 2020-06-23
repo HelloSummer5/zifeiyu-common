@@ -25,7 +25,7 @@ public class TestSwaggerController {
 
     @GetMapping("list")
     public String testMapper(){
-
+        String a= "";
         return classifyService.listPages().toString();
     }
 }
